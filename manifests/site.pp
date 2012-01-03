@@ -19,7 +19,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'build',
+  server => 'puppet.johnburbridge.net',
   path   => false,
 }
 
