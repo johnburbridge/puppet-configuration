@@ -5,7 +5,7 @@ class tomcat {
   notice("Establishing http://$hostname:$tomcat_port/")
 
   Package { # defaults
-    ensure => installed,
+    ensure => absent,
   }
 
   package { 'tomcat6':
