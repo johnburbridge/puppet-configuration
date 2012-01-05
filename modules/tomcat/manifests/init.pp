@@ -34,7 +34,7 @@ class tomcat {
   }
 
   service { 'tomcat6':
-    ensure => running,
+    ensure => stopped,
     require => Package['tomcat6'],
   }   
 
