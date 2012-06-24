@@ -1,14 +1,12 @@
 class jetty {
     package { "jetty":
-        ensure => "latest"
+        ensure => "absent"
     }
     package { "libjetty-extra":
-        ensure => "latest",
-        require => Package["jetty"]
+        ensure => "absent"
     }
     service { "jetty":
-        ensure => "running",
-        enable => "true",
-        require => Package["jetty"],
+        ensure => "stopped",
+        enable => "false"
     }
 }

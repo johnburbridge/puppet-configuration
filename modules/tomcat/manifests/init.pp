@@ -5,7 +5,7 @@ class tomcat {
   notice("Establishing http://$hostname:$tomcat_port/")
 
   Package { # defaults
-    ensure => absent,
+    ensure => latest,
   }
 
   package { 'tomcat6':
@@ -17,6 +17,9 @@ class tomcat {
  
   package { 'tomcat6-admin':
     require => Package['tomcat6'],
+  }
+
+  package { 'libservlet2.5-java':
   }
 
   file { "/etc/tomcat6/tomcat-users.xml":
@@ -34,7 +37,7 @@ class tomcat {
   }
 
   service { 'tomcat6':
-    ensure => stopped,
+    ensure => running,
     require => Package['tomcat6'],
   }   
 
