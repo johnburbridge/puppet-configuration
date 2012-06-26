@@ -6,18 +6,26 @@ class metabuild {
 
 	artifactory::artifact {'metabuild-war':
 		gav => "org.metabuild:www:$metabuildSiteVersion:war",
-		ensure => present,
-		output => "/var/lib/tomcat6/webapps/ROOT.war",
+		output => "/tmp/ROOT.war",
 		require => Package['tomcat6']
 	}
 
-#	file { '/var/lib/tomcat6/webapps/ROOT.war':
-#		source => '/tmp/metabuild/ROOT.war',
-#		checksum => md5,
-#		replace => true,
-#		owner => 'root',
-#		group => 'root',
-#		mode => '640',
-#		ensure => present
-#	}
+	file { '/var/lib/tomcat6/webapps/ROOT.war':
+		source => '/tmp/ROOT.war',
+		checksum => md5,
+		replace => true,
+		owner => 'tomcat6',
+		group => 'tomcat6',
+		mode => '640',
+		ensure => present,
+		require => artifactory::artifact['metabuild-war']
+	}
+
+	exec { 'deleteAfterDownload':
+		user => 'root',
+		path => '/bin:/usr/bin',
+		command => 'rm -Rf /var/lib/tomcat6/webapps/ROOT',
+		refreshonly => true,
+		subscribe => File['/var/lib/tomcat6/webapps/ROOT.war']
+	}
 }
