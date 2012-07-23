@@ -1,0 +1,9 @@
+name 'jburbridge-helloworld'
+version '0.1-SNAPSHOT'
+
+author 'John Burbridge'
+license ''
+project_page ''
+source ''
+summary 'Prints a message based on the host\'s $environment variable'
+description ''

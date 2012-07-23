@@ -1,0 +1,15 @@
+{
+  "name": "jburbridge-helloworld",
+  "author": "John Burbridge",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "Prints a message based on the host\u0027s $environment variable",
+  "version": "0.1-SNAPSHOT",
+  "checksums": {
+    "Modulefile": "1ba792a90979f1611e2181cf9531be8a",
+    "manifests/init.pp": "78f8bc9feb9fb226b423303f65753af1"
+  },
+  "dependencies": []
+}

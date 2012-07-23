@@ -1,0 +1,9 @@
+name 'jburbridge-tomcat7'
+version '0.1-SNAPSHOT'
+
+author 'John Burbridge'
+license ''
+project_page ''
+source ''
+summary 'A Tomcat 7 module for Ubuntu 12.04'
+description ''

@@ -1,0 +1,17 @@
+{
+  "name": "jburbridge-tomcat7",
+  "author": "John Burbridge",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "A Tomcat 7 module for Ubuntu 12.04",
+  "version": "0.1-SNAPSHOT",
+  "checksums": {
+    "Modulefile": "1be05f4002e67b300c7b11e8cab73855",
+    "manifests/init.pp": "705af8774bd4000beb39c8f92709c826",
+    "templates/server.xml.erb": "8eb3cb570f0cc992dcad5a8940f9794b",
+    "templates/tomcat-users.xml.erb": "8a0c01971dfeec4b1c7b2a46da77119a"
+  },
+  "dependencies": []
+}
