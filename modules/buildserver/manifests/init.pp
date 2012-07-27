@@ -13,6 +13,16 @@
 # [Remember: No empty lines between comments and class definition]
 class buildserver {
     
+    # need to make sure the .git folder belongs to tomcat so that 
+    # the jenkins git plug-in can write to it
+    file { '/usr/share/tomcat7/.git':
+        ensure => directory,
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '700',
+        require => Package['tomcat7'],
+    }
+    
     file { '/usr/share/tomcat7/.aws':
         ensure => directory,
         owner => 'tomcat7',
