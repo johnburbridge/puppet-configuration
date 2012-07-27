@@ -1,0 +1,4 @@
+buildserver
+===========
+
+This module manages the secrets for the build.metabuild.net server 

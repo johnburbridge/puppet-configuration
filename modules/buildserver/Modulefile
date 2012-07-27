@@ -1,0 +1,9 @@
+name 'jburbridge-buildserver'
+version '0.1-SNAPSHOT'
+
+author 'jburbridge'
+license ''
+project_page ''
+source ''
+summary 'This module manages the secrets for the build.metabuild.net server '
+description ''
