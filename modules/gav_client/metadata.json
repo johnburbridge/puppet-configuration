@@ -1,0 +1,18 @@
+{
+  "name": "jburbridge-artifactory",
+  "author": "",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "version": "",
+  "checksums": {
+    "Modulefile": "43becaeab23d3f6270724d01ab1c4eb8",
+    "files/artifactory-downloader.sh": "e3e1eb6aadc16fe2850157cdd4012538",
+    "manifests/artifact.pp": "aac19996b28dc754d0cb86eed823517a",
+    "manifests/init.pp": "ef0e24864c6b2510a6da9fdf3ad32d82",
+    "tests/init.pp": "7abb25b65a9972eb760466a3d346d740"
+  },
+  "dependencies": []
+}

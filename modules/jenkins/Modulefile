@@ -1,0 +1,10 @@
+name 'jburbridge-jenkins'
+version ''
+
+author 'jburbridge'
+license ''
+project_page ''
+source ''
+summary ''
+description ''
+dependency 'jburbridge/tomcat7', '==0.1-SNAPSHOT'
