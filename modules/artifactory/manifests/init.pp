@@ -1,56 +1,34 @@
 # Class: artifactory
 #
-# This module downloads Maven Artifacts from Artifactory
+# This module manages artifactory
 #
 # Parameters:
-# [*url*] : The Artifactory base url (mandatory)
-# [*username*] : The username used to connect to artifactory
-# [*password*] : The password used to connect to artifactory
 #
 # Actions:
-# Checks and intialized the Artifactory support.
+#
+# Requires:
 #
 # Sample Usage:
-#  class artifactory {
-#   url => http://repo.mycompany.com/artifactory,
-#   username => user,
-#   password => password
-# }
 #
-class artifactory(
-	$url = "",
-	$username = "",
-	$password = "") {
+# [Remember: No empty lines between comments and class definition]
+class artifactory  {
 
-	# Check arguments
-	# url mandatory
-	if $url == "" {
-		fail("Cannot initialize the Artifactory class - the url parameter is mandatory")
-	}
-	$ARTIFACTORY_URL = $url
-
-	if ($username != "")  and ($password == "") {
-		fail("Cannot initialize the Nexus class - both username and password must be set")
-	} elsif ($username == "")  and ($password != "") {
-		fail("Cannot initialize the Nexus class - both username and password must be set")
-	} elsif ($username == "")  and ($password == "") {
-		$authentication = false
-	} else {
-		$authentication = true
-		$user = $username
-		$pwd = $password
-	}
-	
-	# Install script
-	file { "/opt/artifactory-script/artifactory-downloader.sh":
-		ensure   => file,
-		owner    => "root",
-		mode     => "0755",
-		source   => "puppet:///modules/artifactory/artifactory-downloader.sh",
-		require  => [File["/opt/artifactory-script"]]
-	}
-
-	file { "/opt/artifactory-script":
-		ensure => directory
-	}	
+    include tomcat
+    
+    file { '/var/lib/tomcat7/webapps/artifactory.war':
+        ensure => present,
+        source => '/tmp/artifactory.war',
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '700',
+        require => File['/usr/share/tomcat7/.artifactory'],
+    }
+    
+    file { '/usr/share/tomcat7/.artifactory':
+        ensure => directory,
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '700',
+        require => Class['tomcat'],
+    }
 }

@@ -13,23 +13,7 @@
 # [Remember: No empty lines between comments and class definition]
 class buildserver {
     
-    $jenkins_download_url = "http://mirrors.jenkins-ci.org/war/latest/jenkins.war"
-    
-    exec { "wget $jenkins_download_url":
-        cwd => "/var/lib/tomcat7/webapps",
-        creates => "/var/lib/tomcat7/webapps/jenkins.war",
-        path => ["/usr/bin"],
-        require => File['/usr/share/tomcat7/.jenkins'],
-    }
-    
-    file { '/usr/share/tomcat7/.jenkins':
-        ensure => directory,
-        owner => 'tomcat7',
-        group => 'tomcat7',
-        mode => '700',
-        require => Package['tomcat7'],
-    }
-
+    include jenkins
     
     # need to make sure the .git folder belongs to tomcat so that 
     # the jenkins git plug-in can write to it
@@ -89,4 +73,16 @@ class buildserver {
         ensure => present,
         require => File['/usr/share/tomcat7/.gradle'],
     }
+    
+    # make sure that ip forwarding is enabled
+    file { '/etc/sysctl.conf':
+        content => template('buildserver/sysctl.conf.erb'),
+        checksum => md5,
+        replace => true,
+        owner => 'root',
+        group => 'root',
+        mode => '644',
+        ensure => present,
+    }
+    
 }
