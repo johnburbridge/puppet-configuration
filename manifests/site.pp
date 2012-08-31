@@ -19,7 +19,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'puppet.metabuild.net',
+  server => 'puppet.norcal.metabuild.net',
   path   => false,
 }
 
