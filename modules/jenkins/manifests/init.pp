@@ -15,11 +15,20 @@ class jenkins ($jenkins_download_url = "http://mirrors.jenkins-ci.org/war/latest
 
     include tomcat
     
-    exec { "wget $jenkins_download_url":
+    exec { 'download':
+        command => "wget $jenkins_download_url",
         cwd => "/var/lib/tomcat7/webapps",
         creates => "/var/lib/tomcat7/webapps/jenkins.war",
         path => ["/usr/bin"],
         require => File['/usr/share/tomcat7/.jenkins'],
+    }
+    
+    file { '/var/lib/tomcat7/webapps/jenkins.war':
+        ensure => present,
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '644',
+        require => Exec['download'],
     }
     
     file { '/usr/share/tomcat7/.jenkins':
