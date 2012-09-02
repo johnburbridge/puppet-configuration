@@ -15,7 +15,7 @@ class artifactory ($artifactory_download_url = "http://repo.metabuild.net/artifa
 
     include tomcat
 
-    exec { 'download':
+    exec { 'download_artifactory_war':
         command => "wget $artifactory_download_url",
         cwd => "/var/lib/tomcat7/webapps",
         creates => "/var/lib/tomcat7/webapps/artifactory.war",
@@ -28,7 +28,7 @@ class artifactory ($artifactory_download_url = "http://repo.metabuild.net/artifa
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '644',
-        require => Exec['download'],
+        require => Exec['download_artifactory_war'],
     }
     
     file { '/usr/share/tomcat7/.artifactory':
