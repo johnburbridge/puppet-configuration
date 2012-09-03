@@ -14,15 +14,24 @@
 class buildserver {
     
     include jenkins
+    include artifactory
     
-    # need to make sure the .git folder belongs to tomcat so that 
-    # the jenkins git plug-in can write to it
+    # need to make sure the . folders belongs to tomcat so that 
+    # the jenkins can write to it them
+    file { '/usr/share/tomcat7/.ssh':
+        ensure => directory,
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '700',
+        require => Class['tomcat'],
+    }
+    
     file { '/usr/share/tomcat7/.git':
         ensure => directory,
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '755',
-        require => Package['tomcat7'],
+        require => Class['tomcat'],
     }
     
     file { '/usr/share/tomcat7/.git/config':
@@ -36,37 +45,18 @@ class buildserver {
         require => File['/usr/share/tomcat7/.git'],
     }
     
-    file { '/usr/share/tomcat7/.aws':
-        ensure => directory,
-        owner => 'tomcat7',
-        group => 'tomcat7',
-        mode => '700',
-        require => Package['tomcat7'],
-    }
-    
-    file { '/usr/share/tomcat7/.aws/aws.properties':
-        content => template('buildserver/aws.properties.erb'),
-        checksum => md5,
-        replace => false,
-        owner => 'tomcat7',
-        group => 'tomcat7',
-        mode => '640',
-        ensure => present,
-        require => File['/usr/share/tomcat7/.aws'],
-    }
-
     file { '/usr/share/tomcat7/.gradle':
         ensure => directory,
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '700',
-        require => Package['tomcat7'],
+        require => Class['tomcat'],
     }
 
     file { '/usr/share/tomcat7/.gradle/gradle.properties':
         content => template('buildserver/gradle.properties.erb'),
         checksum => md5,
-        replace => false,
+        replace => true,
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '640',
@@ -84,5 +74,4 @@ class buildserver {
         mode => '644',
         ensure => present,
     }
-    
 }
