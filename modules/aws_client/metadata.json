@@ -1,0 +1,20 @@
+{
+  "name": "jburbridge-aws_client",
+  "author": "jburbridge",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "version": "",
+  "checksums": {
+    "Modulefile": "97b9bbab19f56b85800b5fc4c1cba953",
+    "README": "a0cb60b7326a87c0ee2dbe70793b5291",
+    "manifests/init.pp": "cd030289265f95bc61bdc01b51e7ee1c",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "templates/aws.properties.erb": "791487d0ecfb4d8f4fa31a59faca7d74",
+    "tests/init.pp": "26ca54e5e3dcb6654b275c4d9d00725b"
+  },
+  "dependencies": []
+}
