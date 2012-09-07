@@ -26,6 +26,14 @@ class buildserver {
         require => Class['tomcat'],
     }
     
+    file { '/usr/share/tomcat7/.m2':
+        ensure => directory,
+        owner => 'tomcat7',
+        group => 'tomcat7',
+        mode => '700',
+        require => Class['tomcat'],
+    }
+    
     file { '/usr/share/tomcat7/.git':
         ensure => directory,
         owner => 'tomcat7',
