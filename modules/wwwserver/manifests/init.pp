@@ -38,6 +38,17 @@ class wwwserver {
         require => Class['jetty8'],
     }
     
+    file { '/opt/jetty/etc/webdefault.xml':
+        content => template('wwwserver/webdefault.xml.erb'),
+        checksum => md5,
+        replace => true,
+        owner => 'root',
+        group => 'root',
+        mode => '644',
+        ensure => present,
+        require => Class['jetty8'],
+    }
+    
     exec { 'download_www_war':
         command => "wget -O www.war ${www_download_url}",
         cwd => "/tmp",
