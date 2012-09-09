@@ -45,7 +45,7 @@ class buildserver {
     file { '/usr/share/tomcat7/.git/config':
         content => template('buildserver/git-config.erb'),
         checksum => md5,
-        replace => false,
+        replace => true,
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '644',
@@ -57,14 +57,14 @@ class buildserver {
         ensure => directory,
         owner => 'tomcat7',
         group => 'tomcat7',
-        mode => '700',
+        mode => '770',
         require => Class['tomcat'],
     }
 
     file { '/usr/share/tomcat7/.gradle/gradle.properties':
         content => template('buildserver/gradle.properties.erb'),
         checksum => md5,
-        replace => true,
+        replace => false,
         owner => 'tomcat7',
         group => 'tomcat7',
         mode => '640',

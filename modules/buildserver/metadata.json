@@ -10,12 +10,12 @@
   "checksums": {
     "Modulefile": "b017b02517166ea581efdb8d735c53eb",
     "README": "0acc4abc13c13b2d91648b7ad3cbcbd7",
-    "manifests/init.pp": "0f66535e39df0233c7a3c3d7b8e64152",
+    "manifests/init.pp": "319e14c93547f42461b3220a98b9884f",
     "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
     "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
     "templates/aws.properties.erb": "791487d0ecfb4d8f4fa31a59faca7d74",
     "templates/git-config.erb": "74f6f92a6d25def633d9874f23047ab4",
-    "templates/gradle.properties.erb": "b2ef4f7dceba45294468e662c9970a33",
+    "templates/gradle.properties.erb": "2a30a02476b199d8d18e0297e0e8758d",
     "templates/sysctl.conf.erb": "e470433243873b3e073d41840809915e",
     "tests/init.pp": "8eee30b80cf7ff2ccc8c64fd88509b76"
   },
