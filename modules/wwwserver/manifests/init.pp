@@ -59,6 +59,7 @@ class wwwserver {
         owner => 'root',
         group => 'root',
         mode => '644',
+        backup => false,
         source => "puppet:///modules/wwwserver/www-${www_version}.war",
         require => Exec['purge_old_root'],
         notify => Service['jetty'],

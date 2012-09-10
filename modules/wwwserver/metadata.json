@@ -11,7 +11,7 @@
     "Modulefile": "2fecd9ce8121757028d35ba1f669dc0f",
     "README": "946f1cb3f26d090af67762636923fd5e",
     "files/www-1.1-SNAPSHOT.war": "d77a3958fef37e8f66a9709d54c8d5d6",
-    "manifests/init.pp": "d77d2de1bbeccf974e52e0209c6f624c",
+    "manifests/init.pp": "10b78d3ec90856c8b474802fd5a1a70f",
     "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
     "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
     "templates/root.xml.erb": "84b8bbd67176c321c65e3ccf10da0e64",
