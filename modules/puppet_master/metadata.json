@@ -1,0 +1,19 @@
+{
+  "name": "jburbridge-puppet_master",
+  "author": "jburbridge",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "version": "",
+  "checksums": {
+    "Modulefile": "ddfd72212684f2c5d04a5921000ca8ba",
+    "README": "518dbedb48c7c9d9087dff52d4824fa7",
+    "manifests/init.pp": "ed9e3eba851474dced3d165d210a9ed8",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "tests/init.pp": "225dfca1407d9fcffdb9ffd226c5b33d"
+  },
+  "dependencies": []
+}
